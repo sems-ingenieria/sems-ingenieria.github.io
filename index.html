@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SEMS Ingeniería Estructural</title>
-<meta name="description" content="SEMS: diseño estructural de casa habitación, servicios para ingenieros con automatización por IA y software de diseño conforme a normas vigentes.">
+<meta name="description" content="SEMS: diseño estructural de casa habitación, servicios para ingenieros con automatización por IA y software a la medida para ETABS, Tekla Structures y AutoCAD.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -15,14 +15,14 @@
 <meta property="og:locale" content="es_MX">
 <meta property="og:url" content="https://sems-ingenieria.github.io/">
 <meta property="og:title" content="SEMS · Ingeniería estructural">
-<meta property="og:description" content="Diseño estructural de casa habitación, servicios para ingenieros y software de diseño según norma. Playas de Rosarito, Baja California.">
+<meta property="og:description" content="Diseño estructural de casa habitación, servicios para ingenieros y software a la medida para ETABS, Tekla y AutoCAD. Playas de Rosarito, Baja California.">
 <meta property="og:image" content="https://sems-ingenieria.github.io/assets/og-sems.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Logotipo de SEMS sobre un puente con modelo estructural">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="SEMS · Ingeniería estructural">
-<meta name="twitter:description" content="Diseño estructural de casa habitación, servicios para ingenieros y software de diseño según norma. Playas de Rosarito, Baja California.">
+<meta name="twitter:description" content="Diseño estructural de casa habitación, servicios para ingenieros y software a la medida para ETABS, Tekla y AutoCAD. Playas de Rosarito, Baja California.">
 <meta name="twitter:image" content="https://sems-ingenieria.github.io/assets/og-sems.jpg">
 <meta name="theme-color" content="#08162a">
 <style>
@@ -215,6 +215,12 @@ section.block { padding-block: var(--s-9); position: relative; }
 .fact h3 { font-size: 1.1rem; font-weight: 600; color: var(--ink); }
 .fact p { color: var(--muted); font-size: .95rem; }
 
+/* Programas que usamos */
+.tools-row { margin-top: var(--s-7); display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-5); }
+.tools { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-3); }
+.tools li { font-family: var(--f-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); padding: .35rem .9rem; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.tools-row + .lead-eng { margin-top: var(--s-5); }
+
 /* Responsable técnico */
 .lead-eng { margin-top: var(--s-7); display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--s-5); align-items: center; padding: var(--s-5) var(--s-6); background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); max-width: 760px; }
 .monogram { width: 76px; height: 76px; border-radius: 50%; border: 1.5px solid var(--steel); display: flex; align-items: center; justify-content: center; font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; letter-spacing: .04em; color: var(--steel); background: var(--paper); }
@@ -362,9 +368,9 @@ section.block { padding-block: var(--s-9); position: relative; }
         <a class="path" href="#software">
           <svg class="path-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="9" width="36" height="26" rx="2"/><path d="M18 41h12M24 35v6"/><path d="M13 28l6-10 5 6 4-4 7 8"/></svg>
           <span class="who">Para ingenieros</span>
-          <h3>Software de diseño según norma</h3>
-          <p>Complementos y automatizaciones para ETABS, Tekla Structures y AutoCAD, alineados con la normativa vigente.</p>
-          <span class="go">Ver herramientas <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <h3>Software a la medida</h3>
+          <p>Complementos para ETABS, Tekla Structures y AutoCAD hechos a la medida de tu despacho.</p>
+          <span class="go">Ver ejemplos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </div>
     </div>
@@ -444,52 +450,52 @@ section.block { padding-block: var(--s-9); position: relative; }
   <section class="block blueprint" id="software">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow"><span class="axis">C</span><span class="label">Software especializado</span></div>
-        <h2>Herramientas para los programas que ya usas</h2>
-        <p>Complementos y automatizaciones para ETABS, Tekla Structures y AutoCAD que eliminan el trabajo repetitivo y te ayudan a diseñar conforme a la normativa vigente.</p>
+        <div class="eyebrow"><span class="axis">C</span><span class="label">Software a la medida</span></div>
+        <h2>Complementos a la medida para los programas que ya usas</h2>
+        <p>ETABS, Tekla Structures y AutoCAD son los programas que más usamos en SEMS. Desarrollamos complementos y rutinas a la medida de cada cliente para automatizar el trabajo repetitivo y apegarse a la normativa vigente.</p>
       </div>
       <div class="products">
         <article class="product">
           <div class="product-top">
             <span class="norm">ETABS</span>
-            <h3>Herramientas para ETABS</h3>
-            <p>Automatizan el modelado, el análisis y la revisión de estructuras en ETABS.</p>
+            <h3>Complementos para ETABS</h3>
+            <p>Conectamos con ETABS para automatizar lo que tu equipo hace a mano. Por ejemplo:</p>
           </div>
           <ul>
             <li>Combinaciones de carga y espectros según NTC</li>
             <li>Extracción de resultados a Excel y a la memoria de cálculo</li>
             <li>Revisión de derivas y elementos estructurales</li>
           </ul>
-          <div class="product-foot"><span class="price"><b>Precio bajo pedido</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="Herramientas para ETABS">Solicitar información</a></div>
+          <div class="product-foot"><span class="price"><b>Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="ETABS">Cotizar desarrollo</a></div>
         </article>
         <article class="product">
           <div class="product-top">
             <span class="norm">Tekla Structures</span>
-            <h3>Herramientas para Tekla Structures</h3>
-            <p>Agilizan el modelado y la documentación de estructuras de acero y concreto.</p>
+            <h3>Complementos para Tekla Structures</h3>
+            <p>Herramientas para modelar y documentar estructuras de acero y concreto más rápido. Por ejemplo:</p>
           </div>
           <ul>
             <li>Automatización de tareas de modelado</li>
             <li>Reportes y listas de materiales</li>
             <li>Intercambio de modelos con ETABS</li>
           </ul>
-          <div class="product-foot"><span class="price"><b>Precio bajo pedido</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="Herramientas para Tekla Structures">Solicitar información</a></div>
+          <div class="product-foot"><span class="price"><b>Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="Tekla Structures">Cotizar desarrollo</a></div>
         </article>
         <article class="product">
           <div class="product-top">
             <span class="norm">AutoCAD</span>
             <h3>Rutinas para AutoCAD</h3>
-            <p>Aceleran el dibujo y la revisión de planos estructurales.</p>
+            <p>Rutinas que aceleran el dibujo y la revisión de planos estructurales. Por ejemplo:</p>
           </div>
           <ul>
             <li>Dibujo de armados y detalles típicos</li>
             <li>Cuadros de columnas, trabes y losas</li>
             <li>Plantillas con el formato de tus planos</li>
           </ul>
-          <div class="product-foot"><span class="price"><b>Precio bajo pedido</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="Rutinas para AutoCAD">Solicitar información</a></div>
+          <div class="product-foot"><span class="price"><b>Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="AutoCAD">Cotizar desarrollo</a></div>
         </article>
       </div>
-      <p class="soft-note">¿Necesitas una herramienta a la medida de tu despacho? También desarrollamos software personalizado. <a href="#contacto" data-perfil="software">Cuéntanos qué necesitas</a>.</p>
+      <p class="soft-note">¿Usas otro programa o tienes una idea distinta? <a href="#contacto" data-perfil="software">Cuéntanos qué quieres automatizar</a> y lo evaluamos.</p>
       <p class="tm-note">ETABS, Tekla Structures y AutoCAD son marcas de sus respectivos propietarios.</p>
     </div>
   </section>
@@ -508,6 +514,10 @@ section.block { padding-block: var(--s-9); position: relative; }
         <div class="fact"><h3>Precio cerrado</h3><p>Sabes cuánto pagas desde el inicio, sin cargos sorpresa a mitad del proyecto.</p></div>
         <div class="fact"><h3>Diseño optimizado</h3><p>Un buen cálculo evita sobrediseñar y ahorra acero y concreto en obra.</p></div>
         <div class="fact"><h3>Trato directo</h3><p>Hablas con el ingeniero que calcula tu proyecto, no con un intermediario.</p></div>
+      </div>
+      <div class="tools-row">
+        <span class="label">Programas que más usamos</span>
+        <ul class="tools"><li>ETABS</li><li>Tekla Structures</li><li>AutoCAD</li></ul>
       </div>
       <div class="lead-eng">
         <span class="monogram" aria-hidden="true">HR</span>
@@ -533,7 +543,7 @@ section.block { padding-block: var(--s-9); position: relative; }
         <details><summary>¿Los planos sirven para tramitar la licencia de construcción?</summary><p>Sí. Entregamos planos estructurales y memoria de cálculo con el formato que piden las autoridades, y te apoyamos con la firma de responsable cuando aplica.</p></details>
         <details><summary>¿Cuánto tarda el proyecto estructural?</summary><p>Una casa habitación típica de uno o dos niveles se entrega en 1 a 3 semanas, según el tamaño y la información disponible.</p></details>
         <details><summary>¿La IA reemplaza el criterio del ingeniero?</summary><p>No. Las herramientas que implementamos automatizan tareas repetitivas y señalan posibles errores; las decisiones de diseño y la firma siguen siendo del ingeniero responsable.</p></details>
-        <details><summary>¿Cómo se licencian los programas?</summary><p>Ofrecemos licencias por usuario. Escríbenos y te enviamos precios, requisitos del equipo y una demostración.</p></details>
+        <details><summary>¿Cómo se cotiza un complemento a la medida?</summary><p>Nos cuentas qué tarea quieres automatizar y en qué programa. Revisamos cómo trabajas hoy, te proponemos el alcance y te damos un precio cerrado antes de empezar.</p></details>
       </div>
     </div>
   </section>
@@ -585,8 +595,8 @@ section.block { padding-block: var(--s-9); position: relative; }
           <select id="f-equipo" name="equipo"><option>Trabajo solo</option><option>2 a 5 ingenieros</option><option>6 a 20 ingenieros</option><option>Más de 20</option></select>
         </div>
         <div class="field" data-for="software" hidden>
-          <label for="f-producto">Herramienta de interés</label>
-          <select id="f-producto" name="producto"><option>Herramientas para ETABS</option><option>Herramientas para Tekla Structures</option><option>Rutinas para AutoCAD</option><option>Desarrollo a la medida</option></select>
+          <label for="f-producto">Programa</label>
+          <select id="f-producto" name="producto"><option>ETABS</option><option>Tekla Structures</option><option>AutoCAD</option><option>Otro programa</option></select>
         </div>
 
         <div class="field"><label for="f-msg" id="msg-label">Describe tu proyecto</label><textarea id="f-msg" name="mensaje" required></textarea><span class="err" hidden>Cuéntanos un poco más para poder ayudarte.</span></div>
@@ -620,7 +630,7 @@ section.block { padding-block: var(--s-9); position: relative; }
       </div>
       <div>
         <h4>Servicios</h4>
-        <ul><li><a href="#casa">Diseño de casa habitación</a></li><li><a href="#ingenieros">Servicios para ingenieros</a></li><li><a href="#software">Software de diseño</a></li></ul>
+        <ul><li><a href="#casa">Diseño de casa habitación</a></li><li><a href="#ingenieros">Servicios para ingenieros</a></li><li><a href="#software">Software a la medida</a></li></ul>
       </div>
       <div>
         <h4>Contacto</h4>
@@ -652,8 +662,8 @@ section.block { padding-block: var(--s-9); position: relative; }
   nav.addEventListener("click", function (e) { if (e.target.closest("a")) { nav.dataset.open = "false"; menuBtn.setAttribute("aria-expanded", "false"); } });
 
   // Pestañas del formulario
-  var labels = { casa: "Describe tu proyecto", ia: "¿Qué servicio necesitas o qué tareas quieres agilizar?", software: "¿Qué necesitas diseñar o calcular?" };
-  var asunto = { casa: "Cotización de diseño estructural", ia: "Servicios para ingenieros", software: "Información de software" };
+  var labels = { casa: "Describe tu proyecto", ia: "¿Qué servicio necesitas o qué tareas quieres agilizar?", software: "¿Qué te gustaría automatizar?" };
+  var asunto = { casa: "Cotización de diseño estructural", ia: "Servicios para ingenieros", software: "Cotización de software a la medida" };
   var current = "casa";
   function setTab(t) {
     current = t;
@@ -697,7 +707,7 @@ section.block { padding-block: var(--s-9); position: relative; }
     } else if (current === "ia") {
       lines.push("Tamaño del equipo: " + v("f-equipo"));
     } else {
-      lines.push("Herramienta: " + v("f-producto"));
+      lines.push("Programa: " + v("f-producto"));
     }
     lines.push("", v("f-msg"));
     message = lines.join("\n");
