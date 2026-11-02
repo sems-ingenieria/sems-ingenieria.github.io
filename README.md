@@ -10,3 +10,6 @@ Settings → Pages → Source: "Deploy from a branch" → rama `main`, carpeta `
 
 ## Datos de contacto
 Correo, WhatsApp y ubicación aparecen en la sección de contacto y en el pie de página de `index.html`, y en la constante `CONTACT` al final del archivo (WhatsApp con código de país, sin signos ni espacios).
+
+## Formulario
+El formulario envía cada solicitud a sems.structures@gmail.com con [Web3Forms](https://web3forms.com/) (plan gratis, 250 mensajes al mes). La clave está en la constante `WEB3FORMS` al final de `index.html`; es pública y solo permite enviar a ese correo. Si el envío falla, la página ofrece mandarla por correo o WhatsApp.

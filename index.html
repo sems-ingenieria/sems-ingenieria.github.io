@@ -273,6 +273,9 @@ section.block { padding-block: var(--s-9); position: relative; }
 .result p { color: var(--muted); font-size: .95rem; }
 .result .acts { display: flex; flex-wrap: wrap; gap: var(--s-3); }
 .result .btn { padding: .6em 1.1em; font-size: .92rem; }
+.result.warn { border-color: var(--err); }
+.result.warn h3 { color: var(--err); }
+.result:focus { outline: none; }
 
 /* Pie */
 .site-footer { background: var(--hero-bg); color: var(--hero-muted); }
@@ -601,12 +604,19 @@ section.block { padding-block: var(--s-9); position: relative; }
 
         <div class="field"><label for="f-msg" id="msg-label">Describe tu proyecto</label><textarea id="f-msg" name="mensaje" required></textarea><span class="err" hidden>Cuéntanos un poco más para poder ayudarte.</span></div>
 
-        <button class="btn btn-primary" type="submit" id="submit-btn">Preparar solicitud</button>
+        <input type="checkbox" id="f-botcheck" name="botcheck" tabindex="-1" autocomplete="off" hidden>
+        <button class="btn btn-primary" type="submit" id="submit-btn">Enviar solicitud</button>
         <p class="form-note">Usamos tus datos solo para responder a esta solicitud.</p>
 
-        <div class="result" id="result" hidden aria-live="polite">
-          <h3>Tu solicitud está lista</h3>
-          <p>Elige cómo enviárnosla. Se abrirá tu correo o WhatsApp con el mensaje ya escrito.</p>
+        <div class="result" id="sent" hidden tabindex="-1">
+          <h3>Recibimos tu solicitud</h3>
+          <p>Te responderemos a tu correo en menos de 24 horas hábiles. Si es urgente, escríbenos por WhatsApp.</p>
+          <div class="acts"><a class="btn btn-line" href="https://wa.me/526611964186" target="_blank" rel="noopener">Escribir por WhatsApp</a></div>
+        </div>
+
+        <div class="result warn" id="result" hidden tabindex="-1">
+          <h3>No pudimos enviar tu solicitud</h3>
+          <p>Revisa tu conexión e inténtalo de nuevo, o envíanosla por correo o WhatsApp. Se abrirá con el mensaje ya escrito.</p>
           <div class="acts">
             <a class="btn btn-primary" id="send-mail" href="#" target="_blank" rel="noopener">Enviar por correo</a>
             <a class="btn btn-line" id="send-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
@@ -649,6 +659,8 @@ section.block { padding-block: var(--s-9); position: relative; }
 (function () {
   // Datos de contacto
   var CONTACT = { email: "sems.structures@gmail.com", whatsapp: "526611964186" };
+  // Web3Forms: la clave es pública y solo permite enviar mensajes a sems.structures@gmail.com
+  var WEB3FORMS = { endpoint: "https://api.web3forms.com/submit", key: "bfd2c3c2-f093-4c7a-95cc-aaef2b7f2f64" };
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -671,6 +683,7 @@ section.block { padding-block: var(--s-9); position: relative; }
     document.querySelectorAll("[data-for]").forEach(function (el) { el.hidden = el.dataset.for !== t; });
     document.getElementById("msg-label").textContent = labels[t];
     document.getElementById("result").hidden = true;
+    document.getElementById("sent").hidden = true;
   }
   document.querySelectorAll(".tabs button").forEach(function (b) { b.addEventListener("click", function () { setTab(b.dataset.tab); }); });
   document.querySelectorAll("a[data-perfil]").forEach(function (a) {
@@ -712,11 +725,38 @@ section.block { padding-block: var(--s-9); position: relative; }
     lines.push("", v("f-msg"));
     message = lines.join("\n");
 
-    document.getElementById("send-mail").href = "mailto:" + CONTACT.email + "?subject=" + encodeURIComponent(asunto[current]) + "&body=" + encodeURIComponent(message);
-    document.getElementById("send-wa").href = "https://wa.me/" + CONTACT.whatsapp + "?text=" + encodeURIComponent(message);
-    document.getElementById("copy-status").textContent = "";
-    var r = document.getElementById("result"); r.hidden = false;
-    r.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    var sent = document.getElementById("sent"), failed = document.getElementById("result"), btn = document.getElementById("submit-btn");
+    sent.hidden = true; failed.hidden = true;
+    function show(panel) { panel.hidden = false; panel.scrollIntoView({ behavior: "smooth", block: "nearest" }); panel.focus({ preventScroll: true }); }
+    function showFallback() {
+      document.getElementById("send-mail").href = "mailto:" + CONTACT.email + "?subject=" + encodeURIComponent(asunto[current]) + "&body=" + encodeURIComponent(message);
+      document.getElementById("send-wa").href = "https://wa.me/" + CONTACT.whatsapp + "?text=" + encodeURIComponent(message);
+      document.getElementById("copy-status").textContent = "";
+      show(failed);
+    }
+    function done() { form.reset(); show(sent); }
+
+    // Un bot que marca la casilla oculta recibe una respuesta normal y no se envía nada
+    if (document.getElementById("f-botcheck").checked) { done(); return; }
+
+    btn.disabled = true; btn.textContent = "Enviando…";
+    fetch(WEB3FORMS.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        access_key: WEB3FORMS.key,
+        subject: "SEMS · " + asunto[current] + " · " + v("f-nombre"),
+        from_name: "Sitio web SEMS",
+        name: v("f-nombre"),
+        email: v("f-email"),
+        phone: v("f-tel"),
+        message: message
+      })
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) { if (data && data.success) { done(); } else { showFallback(); } })
+      .catch(showFallback)
+      .then(function () { btn.disabled = false; btn.textContent = "Enviar solicitud"; });
   });
   form.querySelectorAll("input, textarea").forEach(function (el) {
     el.addEventListener("input", function () { var f = el.closest(".field"); if (f.dataset.invalid === "true") { f.dataset.invalid = "false"; f.querySelector(".err").hidden = true; } });
