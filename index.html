@@ -3,26 +3,30 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>SEMS Ingeniería Estructural</title>
-<meta name="description" content="SEMS: diseño estructural residencial y comercial, servicios para ingenieros con automatización por IA y software a la medida para ETABS, Tekla Structures y AutoCAD.">
+<title data-i18n="meta.title">SEMS Ingeniería Estructural</title>
+<meta name="description" data-i18n-attr="content:meta.desc" content="SEMS: diseño estructural residencial y comercial, servicios para ingenieros con automatización por IA y software a la medida para ETABS, Tekla Structures y AutoCAD.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="icon" type="image/png" href="assets/sems-mark.png">
 <link rel="canonical" href="https://sems-ingenieria.github.io/">
+<link rel="alternate" hreflang="es" href="https://sems-ingenieria.github.io/">
+<link rel="alternate" hreflang="en" href="https://sems-ingenieria.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://sems-ingenieria.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="SEMS">
-<meta property="og:locale" content="es_MX">
+<meta property="og:locale" data-i18n-attr="content:og.locale" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://sems-ingenieria.github.io/">
-<meta property="og:title" content="SEMS · Ingeniería estructural">
-<meta property="og:description" content="Diseño estructural residencial y comercial, servicios para ingenieros y software a la medida para ETABS, Tekla y AutoCAD. Playas de Rosarito, Baja California.">
+<meta property="og:title" data-i18n-attr="content:og.title" content="SEMS · Ingeniería estructural">
+<meta property="og:description" data-i18n-attr="content:og.desc" content="Diseño estructural residencial y comercial, servicios para ingenieros y software a la medida para ETABS, Tekla y AutoCAD. Playas de Rosarito, Baja California.">
 <meta property="og:image" content="https://sems-ingenieria.github.io/assets/og-sems.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logotipo de SEMS sobre un puente con modelo estructural">
+<meta property="og:image:alt" data-i18n-attr="content:og.alt" content="Logotipo de SEMS sobre un puente con modelo estructural">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SEMS · Ingeniería estructural">
-<meta name="twitter:description" content="Diseño estructural residencial y comercial, servicios para ingenieros y software a la medida para ETABS, Tekla y AutoCAD. Playas de Rosarito, Baja California.">
+<meta name="twitter:title" data-i18n-attr="content:og.title" content="SEMS · Ingeniería estructural">
+<meta name="twitter:description" data-i18n-attr="content:og.desc" content="Diseño estructural residencial y comercial, servicios para ingenieros y software a la medida para ETABS, Tekla y AutoCAD. Playas de Rosarito, Baja California.">
 <meta name="twitter:image" content="https://sems-ingenieria.github.io/assets/og-sems.jpg">
 <meta name="theme-color" content="#08162a">
 <style>
@@ -93,18 +97,26 @@ a { color: inherit; }
 
 /* Encabezado */
 .site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: var(--header-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s-5); min-height: 68px; }
-.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
+.site-header .wrap { display: flex; align-items: center; gap: var(--s-5); min-height: 68px; }
+.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; margin-right: auto; flex: none; }
 .brand img { height: 38px; width: auto; }
 .brand-name { font-family: var(--f-display); font-weight: 800; font-size: 1.45rem; letter-spacing: .08em; color: var(--ink); line-height: 1; }
 .brand-name small { display: block; font-family: var(--f-mono); font-weight: 400; font-size: .56rem; letter-spacing: .16em; color: var(--muted); margin-top: .3rem; }
 .nav { display: flex; align-items: center; gap: var(--s-5); }
-.nav a { text-decoration: none; font-weight: 500; font-size: .95rem; color: var(--muted); }
+.nav a { text-decoration: none; font-weight: 500; font-size: .95rem; color: var(--muted); white-space: nowrap; }
 .nav a:hover { color: var(--fg); }
 .nav .btn { padding: .6em 1.1em; font-size: .92rem; color: var(--accent-fg); }
+/* Cambio de idioma ES / EN */
+.lang-btn { display: inline-flex; align-items: center; gap: 2px; padding: 3px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); cursor: pointer; font-family: var(--f-mono); font-size: .78rem; font-weight: 500; letter-spacing: .08em; line-height: 1; flex: none; }
+.lang-btn span { padding: .5rem .6rem; border-radius: 999px; color: var(--muted); transition: background .2s, color .2s; }
+.lang-btn span[data-on="true"] { background: var(--steel); color: var(--accent-fg); }
+.lang-btn:hover span[data-on="false"] { color: var(--fg); }
+@media (min-width: 1181px) { .lang-btn { order: 2; } }
+@media (max-width: 1320px) { .site-header .wrap { gap: var(--s-4); } .nav { gap: var(--s-4); } }
 .menu-btn { display: none; background: none; border: 1px solid var(--line); border-radius: var(--radius); padding: .5rem; color: var(--fg); cursor: pointer; }
 .menu-btn svg { width: 22px; height: 22px; display: block; }
-@media (max-width: 880px) {
+@media (max-width: 1180px) {
+  .site-header .wrap { gap: var(--s-3); }
   .menu-btn { display: block; }
   .nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--surface); border-bottom: 1px solid var(--line); padding: var(--s-2) max(20px, env(safe-area-inset-right, 0px)) var(--s-4) max(20px, env(safe-area-inset-left, 0px)); }
   .nav[data-open="false"] { display: none; }
@@ -314,38 +326,39 @@ section.block { padding-block: var(--s-9); position: relative; }
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="#inicio" aria-label="SEMS, inicio">
+    <a class="brand" href="#inicio" aria-label="SEMS, inicio" data-i18n-attr="aria-label:brand.aria">
       <img src="assets/sems-mark.png" alt="" width="56" height="38">
       <span class="brand-name">SEMS<small>STRUCTURAL ENGINEERING MANAGEMENT SYSTEMS</small></span>
     </a>
-    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+    <button class="lang-btn" id="lang-btn" type="button" aria-label="Ver la página en inglés (English)" title="English"><span lang="es" data-on="true">ES</span><span lang="en" data-on="false">EN</span></button>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú" data-i18n-attr="aria-label:menu.aria">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="nav" id="nav" data-open="false">
-      <a href="#casa">Diseño estructural</a>
-      <a href="#ingenieros">Servicios para ingenieros</a>
-      <a href="#software">Software</a>
-      <a href="#faq">Preguntas</a>
-      <a class="btn btn-primary" href="#contacto" data-perfil="casa">Solicitar cotización</a>
+      <a href="#casa" data-i18n="nav.casa">Diseño estructural</a>
+      <a href="#ingenieros" data-i18n="nav.ing">Servicios para ingenieros</a>
+      <a href="#software" data-i18n="nav.soft">Software</a>
+      <a href="#faq" data-i18n="nav.faq">Preguntas</a>
+      <a class="btn btn-primary" href="#contacto" data-perfil="casa" data-i18n="nav.cta">Solicitar cotización</a>
     </nav>
   </div>
 </header>
 
 <main id="inicio">
   <section class="hero">
-    <div class="hero-bg" role="img" aria-label="Puente y edificio con modelo estructural y análisis por elemento finito superpuestos"></div>
+    <div class="hero-bg" role="img" data-i18n-attr="aria-label:hero.bg" aria-label="Puente y edificio con modelo estructural y análisis por elemento finito superpuestos"></div>
     <div class="wrap">
-      <span class="label">Ingeniería · Estructuras · Gestión</span>
-      <h1>Diseño estructural confiable. <em>Ingeniería más eficiente.</em></h1>
-      <p class="hero-lead">En SEMS diseñamos la estructura de casas y edificios comerciales con planos listos para trámite, damos servicios a despachos de ingeniería y desarrollamos complementos a la medida para ETABS, Tekla Structures y AutoCAD.</p>
+      <span class="label" data-i18n="tagline">Ingeniería · Estructuras · Gestión</span>
+      <h1 data-i18n-html="hero.h1">Diseño estructural confiable. <em>Ingeniería más eficiente.</em></h1>
+      <p class="hero-lead" data-i18n="hero.lead">En SEMS diseñamos la estructura de casas y edificios comerciales con planos listos para trámite, damos servicios a despachos de ingeniería y desarrollamos complementos a la medida para ETABS, Tekla Structures y AutoCAD.</p>
       <div>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#contacto" data-perfil="casa">Cotizar mi proyecto
+          <a class="btn btn-primary" href="#contacto" data-perfil="casa"><span data-i18n="cta.quote">Cotizar mi proyecto</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn btn-ghost" href="#servicios">Ver servicios</a>
+          <a class="btn btn-ghost" href="#servicios" data-i18n="hero.cta2">Ver servicios</a>
         </div>
-        <div class="codes" aria-label="Normas de referencia">
-          <span>NTC-2023 CDMX</span><span>ACI 318-19</span><span>AISC 360-22</span><span>MDOC CFE Sismo y Viento</span>
+        <div class="codes" aria-label="Normas de referencia" data-i18n-attr="aria-label:hero.codes">
+          <span>NTC-2023 CDMX</span><span>ACI 318-19</span><span>AISC 360-22</span><span data-i18n="hero.cfe">MDOC CFE Sismo y Viento</span>
         </div>
       </div>
     </div>
@@ -356,24 +369,24 @@ section.block { padding-block: var(--s-9); position: relative; }
       <div class="paths-grid">
         <a class="path" href="#casa">
           <svg class="path-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 22 24 8l18 14"/><path d="M11 18v22h26V18"/><path d="M11 30h26M24 18v22"/></svg>
-          <span class="who">Para propietarios y desarrolladores</span>
-          <h3>Diseño estructural residencial y comercial</h3>
-          <p>Cálculo, memoria y planos estructurales firmados para casas, locales y edificios comerciales.</p>
-          <span class="go">Quiero cotizar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="who" data-i18n="p1.who">Para propietarios y desarrolladores</span>
+          <h3 data-i18n="p1.h">Diseño estructural residencial y comercial</h3>
+          <p data-i18n="p1.p">Cálculo, memoria y planos estructurales firmados para casas, locales y edificios comerciales.</p>
+          <span class="go"><span data-i18n="p1.go">Quiero cotizar</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
         <a class="path" href="#ingenieros">
           <svg class="path-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="24" r="4"/><circle cx="38" cy="12" r="4"/><circle cx="38" cy="36" r="4"/><circle cx="24" cy="24" r="5"/><path d="M14 24h5M28 22l6-7M28 26l6 7"/></svg>
-          <span class="who">Para ingenieros y despachos</span>
-          <h3>Servicios para ingenieros</h3>
-          <p>Memorias de cálculo, revisión de proyectos y automatización con IA para que tu despacho entregue más rápido.</p>
-          <span class="go">Ver servicios <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="who" data-i18n="p2.who">Para ingenieros y despachos</span>
+          <h3 data-i18n="p2.h">Servicios para ingenieros</h3>
+          <p data-i18n="p2.p">Memorias de cálculo, revisión de proyectos y automatización con IA para que tu despacho entregue más rápido.</p>
+          <span class="go"><span data-i18n="hero.cta2">Ver servicios</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
         <a class="path" href="#software">
           <svg class="path-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="6" y="9" width="36" height="26" rx="2"/><path d="M18 41h12M24 35v6"/><path d="M13 28l6-10 5 6 4-4 7 8"/></svg>
-          <span class="who">Para ingenieros</span>
-          <h3>Software a la medida</h3>
-          <p>Complementos para ETABS, Tekla Structures y AutoCAD hechos a la medida de tu despacho.</p>
-          <span class="go">Ver ejemplos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <span class="who" data-i18n="p3.who">Para ingenieros</span>
+          <h3 data-i18n="p3.h">Software a la medida</h3>
+          <p data-i18n="p3.p">Complementos para ETABS, Tekla Structures y AutoCAD hechos a la medida de tu despacho.</p>
+          <span class="go"><span data-i18n="p3.go">Ver ejemplos</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </div>
     </div>
@@ -383,29 +396,29 @@ section.block { padding-block: var(--s-9); position: relative; }
   <section class="block blueprint" id="casa">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow"><span class="axis">A</span><span class="label">Diseño estructural residencial y comercial</span></div>
-        <h2>Tu proyecto, calculado para durar</h2>
-        <p>Para casas nuevas, segundos niveles, ampliaciones, locales y edificios comerciales, entregamos el proyecto estructural completo que te pide la licencia de construcción y que tu constructor necesita en obra.</p>
+        <div class="eyebrow"><span class="axis">A</span><span class="label" data-i18n="p1.h">Diseño estructural residencial y comercial</span></div>
+        <h2 data-i18n="a.h2">Tu proyecto, calculado para durar</h2>
+        <p data-i18n="a.p">Para casas nuevas, segundos niveles, ampliaciones, locales y edificios comerciales, entregamos el proyecto estructural completo que te pide la licencia de construcción y que tu constructor necesita en obra.</p>
       </div>
       <div class="split">
         <div class="panel">
-          <h3 class="ph">Qué recibes</h3>
+          <h3 class="ph" data-i18n="a.get">Qué recibes</h3>
           <ul class="deliverables">
-            <li><span class="code">E-01</span><div><strong>Planos de cimentación</strong><span class="d">Zapatas, losas o contratrabes según el estudio de mecánica de suelos.</span></div></li>
-            <li><span class="code">E-02</span><div><strong>Planos de losas y trabes</strong><span class="d">Armados, cortes y detalles constructivos listos para obra.</span></div></li>
-            <li><span class="code">E-03</span><div><strong>Columnas, muros y castillos</strong><span class="d">Mampostería confinada, concreto o acero, según tu proyecto.</span></div></li>
-            <li><span class="code">MC</span><div><strong>Memoria de cálculo</strong><span class="d">Análisis por cargas gravitacionales, sismo y viento conforme al reglamento local.</span></div></li>
-            <li><span class="code">DRO</span><div><strong>Apoyo en trámite</strong><span class="d">Firma de responsable y acompañamiento ante la autoridad cuando aplica.</span></div></li>
+            <li><span class="code">E-01</span><div><strong data-i18n="d1.s">Planos de cimentación</strong><span class="d" data-i18n="d1.d">Zapatas, losas o contratrabes según el estudio de mecánica de suelos.</span></div></li>
+            <li><span class="code">E-02</span><div><strong data-i18n="d2.s">Planos de losas y trabes</strong><span class="d" data-i18n="d2.d">Armados, cortes y detalles constructivos listos para obra.</span></div></li>
+            <li><span class="code">E-03</span><div><strong data-i18n="d3.s">Columnas, muros y castillos</strong><span class="d" data-i18n="d3.d">Mampostería confinada, concreto o acero, según tu proyecto.</span></div></li>
+            <li><span class="code" data-i18n="d4.code">MC</span><div><strong data-i18n="d4.s">Memoria de cálculo</strong><span class="d" data-i18n="d4.d">Análisis por cargas gravitacionales, sismo y viento conforme al reglamento local.</span></div></li>
+            <li><span class="code" data-i18n="d5.code">DRO</span><div><strong data-i18n="d5.s">Apoyo en trámite</strong><span class="d" data-i18n="d5.d">Firma de responsable y acompañamiento ante la autoridad cuando aplica.</span></div></li>
           </ul>
-          <a class="btn btn-primary" href="#contacto" data-perfil="casa">Cotizar mi proyecto</a>
+          <a class="btn btn-primary" href="#contacto" data-perfil="casa" data-i18n="cta.quote">Cotizar mi proyecto</a>
         </div>
         <div>
-          <span class="label">Cómo trabajamos</span>
+          <span class="label" data-i18n="a.how">Cómo trabajamos</span>
           <ol class="steps" style="margin-top: var(--s-5)">
-            <li><div><h3>Nos compartes tu proyecto</h3><p>Planos arquitectónicos, croquis o fotos del terreno. Si aún no tienes arquitectónico, te orientamos.</p></div></li>
-            <li><div><h3>Te enviamos tu cotización</h3><p>Precio cerrado según metros cuadrados, niveles y sistema constructivo.</p></div></li>
-            <li><div><h3>Análisis y diseño</h3><p>Modelamos la estructura, revisamos sismo y viento y optimizamos materiales para no sobrediseñar.</p></div></li>
-            <li><div><h3>Entrega y seguimiento</h3><p>Recibes planos en PDF y DWG, memoria de cálculo y resolvemos dudas de tu constructor durante la obra.</p></div></li>
+            <li><div><h3 data-i18n="s1.h">Nos compartes tu proyecto</h3><p data-i18n="s1.p">Planos arquitectónicos, croquis o fotos del terreno. Si aún no tienes arquitectónico, te orientamos.</p></div></li>
+            <li><div><h3 data-i18n="s2.h">Te enviamos tu cotización</h3><p data-i18n="s2.p">Precio cerrado según metros cuadrados, niveles y sistema constructivo.</p></div></li>
+            <li><div><h3 data-i18n="s3.h">Análisis y diseño</h3><p data-i18n="s3.p">Modelamos la estructura, revisamos sismo y viento y optimizamos materiales para no sobrediseñar.</p></div></li>
+            <li><div><h3 data-i18n="s4.h">Entrega y seguimiento</h3><p data-i18n="s4.p">Recibes planos en PDF y DWG, memoria de cálculo y resolvemos dudas de tu constructor durante la obra.</p></div></li>
           </ol>
         </div>
       </div>
@@ -416,35 +429,35 @@ section.block { padding-block: var(--s-9); position: relative; }
   <section class="block dark-band" id="ingenieros">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow"><span class="axis">B</span><span class="label">Servicios para ingenieros</span></div>
-        <h2>Menos captura, más ingeniería</h2>
-        <p>Apoyamos a ingenieros y despachos con servicios que aceleran su trabajo, desde memorias de cálculo y revisión de proyectos hasta flujos con IA conectados a tus hojas de cálculo y programas de análisis. Tú conservas el criterio y nosotros nos encargamos de lo repetitivo.</p>
+        <div class="eyebrow"><span class="axis">B</span><span class="label" data-i18n="p2.h">Servicios para ingenieros</span></div>
+        <h2 data-i18n="b.h2">Menos captura, más ingeniería</h2>
+        <p data-i18n="b.p">Apoyamos a ingenieros y despachos con servicios que aceleran su trabajo, desde memorias de cálculo y revisión de proyectos hasta flujos con IA conectados a tus hojas de cálculo y programas de análisis. Tú conservas el criterio y nosotros nos encargamos de lo repetitivo.</p>
       </div>
       <div class="flows">
         <article class="flow">
-          <h3>Memorias de cálculo automáticas</h3>
-          <p>Generamos la memoria a partir de los resultados de tu modelo, con tu formato y tus firmas.</p>
-          <div class="before-after"><span class="ba">Copiar tablas a Word</span><span class="arrow">→</span><span class="ba after">Documento listo para revisión</span></div>
+          <h3 data-i18n="f1.h">Memorias de cálculo automáticas</h3>
+          <p data-i18n="f1.p">Generamos la memoria a partir de los resultados de tu modelo, con tu formato y tus firmas.</p>
+          <div class="before-after"><span class="ba" data-i18n="f1.a">Copiar tablas a Word</span><span class="arrow">→</span><span class="ba after" data-i18n="f1.b">Documento listo para revisión</span></div>
         </article>
         <article class="flow">
-          <h3>Revisión de planos y especificaciones</h3>
-          <p>Un asistente que compara planos contra la memoria y la norma y marca inconsistencias antes de entregar.</p>
-          <div class="before-after"><span class="ba">Revisión manual hoja por hoja</span><span class="arrow">→</span><span class="ba after">Lista de observaciones priorizada</span></div>
+          <h3 data-i18n="f2.h">Revisión de planos y especificaciones</h3>
+          <p data-i18n="f2.p">Un asistente que compara planos contra la memoria y la norma y marca inconsistencias antes de entregar.</p>
+          <div class="before-after"><span class="ba" data-i18n="f2.a">Revisión manual hoja por hoja</span><span class="arrow">→</span><span class="ba after" data-i18n="f2.b">Lista de observaciones priorizada</span></div>
         </article>
         <article class="flow">
-          <h3>Asistente de normativa</h3>
-          <p>Consulta en lenguaje natural sobre NTC, ACI o AISC con la cláusula citada, entrenado con los documentos de tu despacho.</p>
-          <div class="before-after"><span class="ba">Buscar en PDFs de 400 páginas</span><span class="arrow">→</span><span class="ba after">Respuesta con referencia exacta</span></div>
+          <h3 data-i18n="f3.h">Asistente de normativa</h3>
+          <p data-i18n="f3.p">Consulta en lenguaje natural sobre NTC, ACI o AISC con la cláusula citada, entrenado con los documentos de tu despacho.</p>
+          <div class="before-after"><span class="ba" data-i18n="f3.a">Buscar en PDFs de 400 páginas</span><span class="arrow">→</span><span class="ba after" data-i18n="f3.b">Respuesta con referencia exacta</span></div>
         </article>
         <article class="flow">
-          <h3>Cotizaciones y gestión de proyectos</h3>
-          <p>Estimación de honorarios, control de entregables y reportes de avance generados a partir de tus datos.</p>
-          <div class="before-after"><span class="ba">Hojas sueltas y correos</span><span class="arrow">→</span><span class="ba after">Tablero único del despacho</span></div>
+          <h3 data-i18n="f4.h">Cotizaciones y gestión de proyectos</h3>
+          <p data-i18n="f4.p">Estimación de honorarios, control de entregables y reportes de avance generados a partir de tus datos.</p>
+          <div class="before-after"><span class="ba" data-i18n="f4.a">Hojas sueltas y correos</span><span class="arrow">→</span><span class="ba after" data-i18n="f4.b">Tablero único del despacho</span></div>
         </article>
       </div>
       <div class="ia-cta">
-        <p>Cuéntanos cómo trabaja tu despacho y te proponemos los servicios y automatizaciones con mayor retorno.</p>
-        <a class="btn btn-primary" href="#contacto" data-perfil="ia">Agendar diagnóstico</a>
+        <p data-i18n="b.ctap">Cuéntanos cómo trabaja tu despacho y te proponemos los servicios y automatizaciones con mayor retorno.</p>
+        <a class="btn btn-primary" href="#contacto" data-perfil="ia" data-i18n="b.cta">Agendar diagnóstico</a>
       </div>
     </div>
   </section>
@@ -453,82 +466,82 @@ section.block { padding-block: var(--s-9); position: relative; }
   <section class="block blueprint" id="software">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow"><span class="axis">C</span><span class="label">Software a la medida</span></div>
-        <h2>Complementos a la medida para los programas que ya usas</h2>
-        <p>ETABS, Tekla Structures y AutoCAD son los programas que más usamos en SEMS. Desarrollamos complementos y rutinas a la medida de cada cliente para automatizar el trabajo repetitivo y apegarse a la normativa vigente.</p>
+        <div class="eyebrow"><span class="axis">C</span><span class="label" data-i18n="p3.h">Software a la medida</span></div>
+        <h2 data-i18n="c.h2">Complementos a la medida para los programas que ya usas</h2>
+        <p data-i18n="c.p">ETABS, Tekla Structures y AutoCAD son los programas que más usamos en SEMS. Desarrollamos complementos y rutinas a la medida de cada cliente para automatizar el trabajo repetitivo y apegarse a la normativa vigente.</p>
       </div>
       <div class="products">
         <article class="product">
           <div class="product-top">
             <span class="norm">ETABS</span>
-            <h3>Complementos para ETABS</h3>
-            <p>Conectamos con ETABS para automatizar lo que tu equipo hace a mano. Por ejemplo:</p>
+            <h3 data-i18n="pe.h">Complementos para ETABS</h3>
+            <p data-i18n="pe.p">Conectamos con ETABS para automatizar lo que tu equipo hace a mano. Por ejemplo:</p>
           </div>
           <ul>
-            <li>Combinaciones de carga y espectros según NTC</li>
-            <li>Extracción de resultados a Excel y a la memoria de cálculo</li>
-            <li>Revisión de derivas y elementos estructurales</li>
+            <li data-i18n="pe.l1">Combinaciones de carga y espectros según NTC</li>
+            <li data-i18n="pe.l2">Extracción de resultados a Excel y a la memoria de cálculo</li>
+            <li data-i18n="pe.l3">Revisión de derivas y elementos estructurales</li>
           </ul>
-          <div class="product-foot"><span class="price"><b>Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="ETABS">Cotizar desarrollo</a></div>
+          <div class="product-foot"><span class="price"><b data-i18n="c.price">Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="ETABS" data-i18n="c.btn">Cotizar desarrollo</a></div>
         </article>
         <article class="product">
           <div class="product-top">
             <span class="norm">Tekla Structures</span>
-            <h3>Complementos para Tekla Structures</h3>
-            <p>Herramientas para modelar y documentar estructuras de acero y concreto más rápido. Por ejemplo:</p>
+            <h3 data-i18n="pt.h">Complementos para Tekla Structures</h3>
+            <p data-i18n="pt.p">Herramientas para modelar y documentar estructuras de acero y concreto más rápido. Por ejemplo:</p>
           </div>
           <ul>
-            <li>Automatización de tareas de modelado</li>
-            <li>Reportes y listas de materiales</li>
-            <li>Intercambio de modelos con ETABS</li>
+            <li data-i18n="pt.l1">Automatización de tareas de modelado</li>
+            <li data-i18n="pt.l2">Reportes y listas de materiales</li>
+            <li data-i18n="pt.l3">Intercambio de modelos con ETABS</li>
           </ul>
-          <div class="product-foot"><span class="price"><b>Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="Tekla Structures">Cotizar desarrollo</a></div>
+          <div class="product-foot"><span class="price"><b data-i18n="c.price">Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="Tekla Structures" data-i18n="c.btn">Cotizar desarrollo</a></div>
         </article>
         <article class="product">
           <div class="product-top">
             <span class="norm">AutoCAD</span>
-            <h3>Rutinas para AutoCAD</h3>
-            <p>Rutinas que aceleran el dibujo y la revisión de planos estructurales. Por ejemplo:</p>
+            <h3 data-i18n="pa.h">Rutinas para AutoCAD</h3>
+            <p data-i18n="pa.p">Rutinas que aceleran el dibujo y la revisión de planos estructurales. Por ejemplo:</p>
           </div>
           <ul>
-            <li>Dibujo de armados y detalles típicos</li>
-            <li>Cuadros de columnas, trabes y losas</li>
-            <li>Plantillas con el formato de tus planos</li>
+            <li data-i18n="pa.l1">Dibujo de armados y detalles típicos</li>
+            <li data-i18n="pa.l2">Cuadros de columnas, trabes y losas</li>
+            <li data-i18n="pa.l3">Plantillas con el formato de tus planos</li>
           </ul>
-          <div class="product-foot"><span class="price"><b>Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="AutoCAD">Cotizar desarrollo</a></div>
+          <div class="product-foot"><span class="price"><b data-i18n="c.price">Cotización a la medida</b></span><a class="btn btn-line" href="#contacto" data-perfil="software" data-producto="AutoCAD" data-i18n="c.btn">Cotizar desarrollo</a></div>
         </article>
       </div>
-      <p class="soft-note">¿Usas otro programa o tienes una idea distinta? <a href="#contacto" data-perfil="software">Cuéntanos qué quieres automatizar</a> y lo evaluamos.</p>
-      <p class="tm-note">ETABS, Tekla Structures y AutoCAD son marcas de sus respectivos propietarios.</p>
+      <p class="soft-note" data-i18n-html="c.note">¿Usas otro programa o tienes una idea distinta? <a href="#contacto" data-perfil="software">Cuéntanos qué quieres automatizar</a> y lo evaluamos.</p>
+      <p class="tm-note" data-i18n="c.tm">ETABS, Tekla Structures y AutoCAD son marcas de sus respectivos propietarios.</p>
     </div>
   </section>
 
-  <div class="wrap"><div class="dim"><span>SEMS · ESTRUCTURAS SEGURAS · PROCESOS EFICIENTES</span></div></div>
+  <div class="wrap"><div class="dim"><span data-i18n="dim">SEMS · ESTRUCTURAS SEGURAS · PROCESOS EFICIENTES</span></div></div>
 
   <!-- Por qué SEMS -->
   <section class="block">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow"><span class="axis">D</span><span class="label">Por qué SEMS</span></div>
-        <h2>Ingenieros que también construyen software</h2>
+        <div class="eyebrow"><span class="axis">D</span><span class="label" data-i18n="d.label">Por qué SEMS</span></div>
+        <h2 data-i18n="d.h2">Ingenieros que también construyen software</h2>
       </div>
       <div class="facts">
-        <div class="fact"><h3>Normativa al día</h3><p>Diseñamos con las ediciones vigentes de las normas mexicanas e internacionales.</p></div>
-        <div class="fact"><h3>Precio cerrado</h3><p>Sabes cuánto pagas desde el inicio, sin cargos sorpresa a mitad del proyecto.</p></div>
-        <div class="fact"><h3>Diseño optimizado</h3><p>Un buen cálculo evita sobrediseñar y ahorra acero y concreto en obra.</p></div>
-        <div class="fact"><h3>Trato directo</h3><p>Hablas con el ingeniero que calcula tu proyecto, no con un intermediario.</p></div>
+        <div class="fact"><h3 data-i18n="k1.h">Normativa al día</h3><p data-i18n="k1.p">Diseñamos con las ediciones vigentes de las normas mexicanas e internacionales.</p></div>
+        <div class="fact"><h3 data-i18n="k2.h">Precio cerrado</h3><p data-i18n="k2.p">Sabes cuánto pagas desde el inicio, sin cargos sorpresa a mitad del proyecto.</p></div>
+        <div class="fact"><h3 data-i18n="k3.h">Diseño optimizado</h3><p data-i18n="k3.p">Un buen cálculo evita sobrediseñar y ahorra acero y concreto en obra.</p></div>
+        <div class="fact"><h3 data-i18n="k4.h">Trato directo</h3><p data-i18n="k4.p">Hablas con el ingeniero que calcula tu proyecto, no con un intermediario.</p></div>
       </div>
       <div class="tools-row">
-        <span class="label">Programas que más usamos</span>
+        <span class="label" data-i18n="d.tools">Programas que más usamos</span>
         <ul class="tools"><li>ETABS</li><li>Tekla Structures</li><li>AutoCAD</li></ul>
       </div>
       <div class="lead-eng">
         <span class="monogram" aria-hidden="true">HR</span>
         <div class="lead-body">
-          <span class="label">Responsable técnico</span>
+          <span class="label" data-i18n="d.lead">Responsable técnico</span>
           <h3>Dr. Henry E. Reyes</h3>
-          <p class="cred">Ingeniero civil · Doctor en Ingeniería</p>
-          <p>Dirige los proyectos estructurales y el desarrollo de software de SEMS.</p>
+          <p class="cred" data-i18n="d.cred">Ingeniero civil · Doctor en Ingeniería</p>
+          <p data-i18n="d.bio">Dirige los proyectos estructurales y el desarrollo de software de SEMS.</p>
         </div>
       </div>
     </div>
@@ -538,15 +551,15 @@ section.block { padding-block: var(--s-9); position: relative; }
   <section class="block blueprint" id="faq" style="padding-top: var(--s-7)">
     <div class="wrap">
       <div class="sec-head">
-        <span class="label">Preguntas frecuentes</span>
-        <h2>Lo que más nos preguntan</h2>
+        <span class="label" data-i18n="faq.label">Preguntas frecuentes</span>
+        <h2 data-i18n="faq.h2">Lo que más nos preguntan</h2>
       </div>
       <div class="faq">
-        <details><summary>¿Qué necesito para cotizar el diseño estructural de mi proyecto?</summary><p>Con los planos arquitectónicos (aunque sean preliminares), la ubicación del terreno y el número de niveles podemos darte una cotización. Si cuentas con estudio de mecánica de suelos, compártelo también.</p></details>
-        <details><summary>¿Los planos sirven para tramitar la licencia de construcción?</summary><p>Sí. Entregamos planos estructurales y memoria de cálculo con el formato que piden las autoridades, y te apoyamos con la firma de responsable cuando aplica.</p></details>
-        <details><summary>¿Cuánto tarda el proyecto estructural?</summary><p>Depende del tamaño del proyecto, del sistema constructivo y de la información disponible. Te damos el plazo junto con tu cotización.</p></details>
-        <details><summary>¿Cómo funciona la optimización de flujos de trabajo para mi despacho?</summary><p>Empezamos revisando cómo trabaja hoy tu equipo, qué programas usa y qué tareas repite más. Con eso te proponemos las automatizaciones o complementos que más tiempo te ahorran, los desarrollamos a la medida y los dejamos funcionando con tu equipo.</p></details>
-        <details><summary>¿Cómo se cotiza un complemento a la medida?</summary><p>Nos cuentas qué tarea quieres automatizar y en qué programa. Revisamos cómo trabajas hoy, te proponemos el alcance y te damos un precio cerrado antes de empezar.</p></details>
+        <details><summary data-i18n="q1">¿Qué necesito para cotizar el diseño estructural de mi proyecto?</summary><p data-i18n="a1">Con los planos arquitectónicos (aunque sean preliminares), la ubicación del terreno y el número de niveles podemos darte una cotización. Si cuentas con estudio de mecánica de suelos, compártelo también.</p></details>
+        <details><summary data-i18n="q2">¿Los planos sirven para tramitar la licencia de construcción?</summary><p data-i18n="a2">Sí. Entregamos planos estructurales y memoria de cálculo con el formato que piden las autoridades, y te apoyamos con la firma de responsable cuando aplica.</p></details>
+        <details><summary data-i18n="q3">¿Cuánto tarda el proyecto estructural?</summary><p data-i18n="a3">Depende del tamaño del proyecto, del sistema constructivo y de la información disponible. Te damos el plazo junto con tu cotización.</p></details>
+        <details><summary data-i18n="q4">¿Cómo funciona la optimización de flujos de trabajo para mi despacho?</summary><p data-i18n="a4">Empezamos revisando cómo trabaja hoy tu equipo, qué programas usa y qué tareas repite más. Con eso te proponemos las automatizaciones o complementos que más tiempo te ahorran, los desarrollamos a la medida y los dejamos funcionando con tu equipo.</p></details>
+        <details><summary data-i18n="q5">¿Cómo se cotiza un complemento a la medida?</summary><p data-i18n="a5">Nos cuentas qué tarea quieres automatizar y en qué programa. Revisamos cómo trabajas hoy, te proponemos el alcance y te damos un precio cerrado antes de empezar.</p></details>
       </div>
     </div>
   </section>
@@ -556,72 +569,72 @@ section.block { padding-block: var(--s-9); position: relative; }
     <div class="wrap contact-grid">
       <div>
         <div class="sec-head" style="margin-bottom: 0">
-          <span class="label">Contacto</span>
-          <h2>Cuéntanos tu proyecto</h2>
-          <p>Te atenderemos lo más pronto posible con los siguientes pasos y, cuando aplica, una cotización.</p>
+          <span class="label" data-i18n="ct.label">Contacto</span>
+          <h2 data-i18n="ct.h2">Cuéntanos tu proyecto</h2>
+          <p data-i18n="ct.p">Te atenderemos lo más pronto posible con los siguientes pasos y, cuando aplica, una cotización.</p>
         </div>
         <ul class="contact-list">
-          <li><span class="k">Correo</span><a class="v" id="c-email" href="mailto:sems.structures@gmail.com">sems.structures@gmail.com</a></li>
-          <li><span class="k">Teléfono / WhatsApp</span><a class="v" id="c-tel" href="https://wa.me/526611964186" target="_blank" rel="noopener">+52 661 196 4186</a></li>
-          <li><span class="k">Ubicación</span><span class="v">Playas de Rosarito, Baja California, México</span></li>
-          <li><span class="k">Redes sociales</span><span class="social"><a class="v" href="https://www.instagram.com/sems_structures/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@sems_structures</a><a class="v" href="https://www.tiktok.com/@sems_ingenieria" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>@sems_ingenieria</a></span></li>
-          <li><span class="k">Horario</span><span class="v">Lunes a viernes, 8:00 a.m. a 5:00 p.m.</span></li>
+          <li><span class="k" data-i18n="f.email">Correo</span><a class="v" id="c-email" href="mailto:sems.structures@gmail.com">sems.structures@gmail.com</a></li>
+          <li><span class="k" data-i18n="ct.tel">Teléfono / WhatsApp</span><a class="v" id="c-tel" href="https://wa.me/526611964186" target="_blank" rel="noopener">+52 661 196 4186</a></li>
+          <li><span class="k" data-i18n="ct.loc">Ubicación</span><span class="v" data-i18n="loc">Playas de Rosarito, Baja California, México</span></li>
+          <li><span class="k" data-i18n="ct.soc">Redes sociales</span><span class="social"><a class="v" href="https://www.instagram.com/sems_structures/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>@sems_structures</a><a class="v" href="https://www.tiktok.com/@sems_ingenieria" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>@sems_ingenieria</a></span></li>
+          <li><span class="k" data-i18n="ct.hours">Horario</span><span class="v" data-i18n="ct.hoursv">Lunes a viernes, 8:00 a.m. a 5:00 p.m.</span></li>
         </ul>
       </div>
 
       <form class="form" id="form" novalidate>
-        <div class="tabs" role="group" aria-label="Tipo de solicitud">
-          <button type="button" id="tab-casa" data-tab="casa" aria-pressed="true">Diseño estructural</button>
-          <button type="button" id="tab-ia" data-tab="ia" aria-pressed="false">Servicios para ingenieros</button>
-          <button type="button" id="tab-software" data-tab="software" aria-pressed="false">Software</button>
+        <div class="tabs" role="group" aria-label="Tipo de solicitud" data-i18n-attr="aria-label:tabs.aria">
+          <button type="button" id="tab-casa" data-tab="casa" aria-pressed="true" data-i18n="nav.casa">Diseño estructural</button>
+          <button type="button" id="tab-ia" data-tab="ia" aria-pressed="false" data-i18n="nav.ing">Servicios para ingenieros</button>
+          <button type="button" id="tab-software" data-tab="software" aria-pressed="false" data-i18n="nav.soft">Software</button>
         </div>
 
         <div class="row">
-          <div class="field"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required><span class="err" hidden>Escribe tu nombre.</span></div>
-          <div class="field"><label for="f-email">Correo</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err" hidden>Escribe un correo válido, por ejemplo nombre@correo.com.</span></div>
+          <div class="field"><label for="f-nombre" data-i18n="f.name">Nombre</label><input id="f-nombre" name="nombre" autocomplete="name" required><span class="err" hidden data-i18n="f.name.err">Escribe tu nombre.</span></div>
+          <div class="field"><label for="f-email" data-i18n="f.email">Correo</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="err" hidden data-i18n="f.email.err">Escribe un correo válido, por ejemplo nombre@correo.com.</span></div>
         </div>
         <div class="row">
-          <div class="field"><label for="f-tel">Teléfono <span class="opt">(opcional)</span></label><input id="f-tel" name="telefono" type="tel" autocomplete="tel"></div>
-          <div class="field"><label for="f-ciudad">Ciudad</label><input id="f-ciudad" name="ciudad" autocomplete="address-level2" required><span class="err" hidden>Indica la ciudad del proyecto o de tu despacho.</span></div>
+          <div class="field"><label for="f-tel" data-i18n-html="f.tel">Teléfono <span class="opt">(opcional)</span></label><input id="f-tel" name="telefono" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="f-ciudad" data-i18n="f.city">Ciudad</label><input id="f-ciudad" name="ciudad" autocomplete="address-level2" required><span class="err" hidden data-i18n="f.city.err">Indica la ciudad del proyecto o de tu despacho.</span></div>
         </div>
 
         <div class="row" data-for="casa">
-          <div class="field"><label for="f-tipo">Tipo de obra</label>
-            <select id="f-tipo" name="tipo_obra"><option>Casa nueva</option><option>Local o edificio comercial</option><option>Ampliación o segundo nivel</option><option>Revisión de estructura existente</option></select></div>
+          <div class="field"><label for="f-tipo" data-i18n="f.type">Tipo de obra</label>
+            <select id="f-tipo" name="tipo_obra"><option data-i18n="f.type1">Casa nueva</option><option data-i18n="f.type2">Local o edificio comercial</option><option data-i18n="f.type3">Ampliación o segundo nivel</option><option data-i18n="f.type4">Revisión de estructura existente</option></select></div>
           <div class="row" style="gap: var(--s-3)">
-            <div class="field"><label for="f-m2">m² aprox.</label><input id="f-m2" name="m2" type="number" min="0" inputmode="numeric" placeholder="120"></div>
-            <div class="field"><label for="f-niveles">Niveles</label><select id="f-niveles" name="niveles"><option>1</option><option selected>2</option><option>3</option><option>4 o más</option></select></div>
+            <div class="field"><label for="f-m2" data-i18n="f.m2">m² aprox.</label><input id="f-m2" name="m2" type="number" min="0" inputmode="numeric" placeholder="120"></div>
+            <div class="field"><label for="f-niveles" data-i18n="f.floors">Niveles</label><select id="f-niveles" name="niveles"><option>1</option><option selected>2</option><option>3</option><option data-i18n="f.floors4">4 o más</option></select></div>
           </div>
         </div>
         <div class="field" data-for="ia" hidden>
-          <label for="f-equipo">Tamaño del equipo</label>
-          <select id="f-equipo" name="equipo"><option>Trabajo solo</option><option>2 a 5 ingenieros</option><option>6 a 20 ingenieros</option><option>Más de 20</option></select>
+          <label for="f-equipo" data-i18n="f.team">Tamaño del equipo</label>
+          <select id="f-equipo" name="equipo"><option data-i18n="f.team1">Trabajo solo</option><option data-i18n="f.team2">2 a 5 ingenieros</option><option data-i18n="f.team3">6 a 20 ingenieros</option><option data-i18n="f.team4">Más de 20</option></select>
         </div>
         <div class="field" data-for="software" hidden>
-          <label for="f-producto">Programa</label>
-          <select id="f-producto" name="producto"><option>ETABS</option><option>Tekla Structures</option><option>AutoCAD</option><option>Otro programa</option></select>
+          <label for="f-producto" data-i18n="f.prog">Programa</label>
+          <select id="f-producto" name="producto"><option value="ETABS">ETABS</option><option value="Tekla Structures">Tekla Structures</option><option value="AutoCAD">AutoCAD</option><option value="Otro" data-i18n="f.prog4">Otro programa</option></select>
         </div>
 
-        <div class="field"><label for="f-msg" id="msg-label">Describe tu proyecto</label><textarea id="f-msg" name="mensaje" required></textarea><span class="err" hidden>Cuéntanos un poco más para poder ayudarte.</span></div>
+        <div class="field"><label for="f-msg" id="msg-label">Describe tu proyecto</label><textarea id="f-msg" name="mensaje" required></textarea><span class="err" hidden data-i18n="f.msg.err">Cuéntanos un poco más para poder ayudarte.</span></div>
 
         <input type="checkbox" id="f-botcheck" name="botcheck" tabindex="-1" autocomplete="off" hidden>
         <button class="btn btn-primary" type="submit" id="submit-btn">Enviar solicitud</button>
-        <p class="form-note">Usamos tus datos solo para responder a esta solicitud.</p>
+        <p class="form-note" data-i18n="f.note">Usamos tus datos solo para responder a esta solicitud.</p>
 
         <div class="result" id="sent" hidden tabindex="-1">
-          <h3>Recibimos tu solicitud</h3>
-          <p>Gracias por escribirnos. Te atenderemos lo más pronto posible.</p>
-          <p>¿Prefieres WhatsApp? También puedes escribirnos por ahí.</p>
-          <div class="acts"><a class="btn btn-line" href="https://wa.me/526611964186" target="_blank" rel="noopener">Escribir por WhatsApp</a></div>
+          <h3 data-i18n="sent.h">Recibimos tu solicitud</h3>
+          <p data-i18n="sent.p1">Gracias por escribirnos. Te atenderemos lo más pronto posible.</p>
+          <p data-i18n="sent.p2">¿Prefieres WhatsApp? También puedes escribirnos por ahí.</p>
+          <div class="acts"><a class="btn btn-line" href="https://wa.me/526611964186" target="_blank" rel="noopener" data-i18n="sent.wa">Escribir por WhatsApp</a></div>
         </div>
 
         <div class="result warn" id="result" hidden tabindex="-1">
-          <h3>No pudimos enviar tu solicitud</h3>
-          <p>Revisa tu conexión e inténtalo de nuevo, o envíanosla por correo o WhatsApp. Se abrirá con el mensaje ya escrito.</p>
+          <h3 data-i18n="fail.h">No pudimos enviar tu solicitud</h3>
+          <p data-i18n="fail.p">Revisa tu conexión e inténtalo de nuevo, o envíanosla por correo o WhatsApp. Se abrirá con el mensaje ya escrito.</p>
           <div class="acts">
-            <a class="btn btn-primary" id="send-mail" href="#" target="_blank" rel="noopener">Enviar por correo</a>
-            <a class="btn btn-line" id="send-wa" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
-            <button type="button" class="btn btn-line" id="copy-btn">Copiar mensaje</button>
+            <a class="btn btn-primary" id="send-mail" href="#" target="_blank" rel="noopener" data-i18n="fail.mail">Enviar por correo</a>
+            <a class="btn btn-line" id="send-wa" href="#" target="_blank" rel="noopener" data-i18n="fail.wa">Enviar por WhatsApp</a>
+            <button type="button" class="btn btn-line" id="copy-btn" data-i18n="fail.copy">Copiar mensaje</button>
           </div>
           <p id="copy-status" aria-live="polite"></p>
         </div>
@@ -630,29 +643,29 @@ section.block { padding-block: var(--s-9); position: relative; }
   </section>
 </main>
 
-<a class="wa-float" href="https://wa.me/526611964186?text=Hola%20SEMS%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>Escríbenos</span></a>
+<a class="wa-float" data-i18n-attr="href:wa.href,aria-label:wa.aria" href="https://wa.me/526611964186?text=Hola%20SEMS%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span data-i18n="wa.short">Escríbenos</span></a>
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
         <img src="assets/sems-logo-white.png" alt="SEMS Engineering, Structures, Management" width="46" height="46">
-        <p>Structural Engineering Management Systems. Diseño estructural, servicios de ingeniería y software especializado.</p>
+        <p data-i18n="foot.p">Structural Engineering Management Systems. Diseño estructural, servicios de ingeniería y software especializado.</p>
       </div>
       <div>
-        <h4>Servicios</h4>
-        <ul><li><a href="#casa">Diseño residencial y comercial</a></li><li><a href="#ingenieros">Servicios para ingenieros</a></li><li><a href="#software">Software a la medida</a></li></ul>
+        <h4 data-i18n="foot.svc">Servicios</h4>
+        <ul><li><a href="#casa" data-i18n="foot.l1">Diseño residencial y comercial</a></li><li><a href="#ingenieros" data-i18n="nav.ing">Servicios para ingenieros</a></li><li><a href="#software" data-i18n="p3.h">Software a la medida</a></li></ul>
       </div>
       <div>
-        <h4>Contacto</h4>
-        <ul><li><a href="mailto:sems.structures@gmail.com">sems.structures@gmail.com</a></li><li><a href="https://wa.me/526611964186" target="_blank" rel="noopener">WhatsApp +52 661 196 4186</a></li><li>Playas de Rosarito, Baja California, México</li></ul>
+        <h4 data-i18n="ct.label">Contacto</h4>
+        <ul><li><a href="mailto:sems.structures@gmail.com">sems.structures@gmail.com</a></li><li><a href="https://wa.me/526611964186" target="_blank" rel="noopener">WhatsApp +52 661 196 4186</a></li><li data-i18n="loc">Playas de Rosarito, Baja California, México</li></ul>
       </div>
       <div>
-        <h4>Síguenos</h4>
+        <h4 data-i18n="foot.follow">Síguenos</h4>
         <ul><li><a class="soc" href="https://www.instagram.com/sems_structures/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a></li><li><a class="soc" href="https://www.tiktok.com/@sems_ingenieria" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>TikTok</a></li></ul>
       </div>
     </div>
-    <div class="foot-bottom"><span>© <span id="year">2026</span> SEMS. Todos los derechos reservados.</span><span>Ingeniería · Estructuras · Gestión</span></div>
+    <div class="foot-bottom"><span>© <span id="year">2026</span> SEMS. <span data-i18n="foot.rights">Todos los derechos reservados.</span></span><span data-i18n="tagline">Ingeniería · Estructuras · Gestión</span></div>
   </div>
 </footer>
 
@@ -665,6 +678,259 @@ section.block { padding-block: var(--s-9); position: relative; }
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // ---------- Idioma (español / inglés) ----------
+  // El texto en español vive en el HTML. Aquí está la versión en inglés de cada elemento marcado con
+  // data-i18n (texto), data-i18n-html (texto con etiquetas) o data-i18n-attr (atributos, "atributo:clave").
+  var EN = {
+    "meta.title": "SEMS Structural Engineering",
+    "meta.desc": "SEMS: residential and commercial structural design, services for engineers with AI automation, and custom software for ETABS, Tekla Structures and AutoCAD.",
+    "og.locale": "en_US",
+    "og.title": "SEMS · Structural engineering",
+    "og.desc": "Residential and commercial structural design, services for engineers and custom software for ETABS, Tekla and AutoCAD. Playas de Rosarito, Baja California.",
+    "og.alt": "SEMS logo over a bridge with a structural model",
+
+    "brand.aria": "SEMS, home",
+    "menu.aria": "Open menu",
+    "nav.casa": "Structural design",
+    "nav.ing": "Services for engineers",
+    "nav.soft": "Software",
+    "nav.faq": "FAQ",
+    "nav.cta": "Request a quote",
+
+    "hero.bg": "Bridge and building with an overlaid structural model and finite element analysis",
+    "tagline": "Engineering · Structures · Management",
+    "hero.h1": "Reliable structural design. <em>More efficient engineering.</em>",
+    "hero.lead": "At SEMS we design the structure of homes and commercial buildings with permit-ready drawings, support engineering firms with specialized services, and develop custom add-ons for ETABS, Tekla Structures and AutoCAD.",
+    "cta.quote": "Quote my project",
+    "hero.cta2": "See services",
+    "hero.codes": "Reference codes",
+    "hero.cfe": "CFE MDOC Seismic and Wind",
+
+    "p1.who": "For owners and developers",
+    "p1.h": "Residential and commercial structural design",
+    "p1.p": "Structural calculations, calculation report and signed structural drawings for homes, retail spaces and commercial buildings.",
+    "p1.go": "Get a quote",
+    "p2.who": "For engineers and firms",
+    "p2.h": "Services for engineers",
+    "p2.p": "Calculation reports, project reviews and AI automation so your firm can deliver faster.",
+    "p3.who": "For engineers",
+    "p3.h": "Custom software",
+    "p3.p": "Add-ons for ETABS, Tekla Structures and AutoCAD, tailored to your firm.",
+    "p3.go": "See examples",
+
+    "a.h2": "Your project, engineered to last",
+    "a.p": "For new homes, second stories, additions, retail spaces and commercial buildings, we deliver the complete structural project required for your building permit and needed by your contractor on site.",
+    "a.get": "What you get",
+    "d1.s": "Foundation plans",
+    "d1.d": "Footings, mat foundations or grade beams based on the geotechnical report.",
+    "d2.s": "Slab and beam plans",
+    "d2.d": "Reinforcement, sections and construction details ready for the job site.",
+    "d3.s": "Columns, walls and tie columns",
+    "d3.d": "Confined masonry, concrete or steel, depending on your project.",
+    "d4.code": "CALC",
+    "d4.s": "Structural calculation report",
+    "d4.d": "Gravity, seismic and wind load analysis in accordance with the local building code.",
+    "d5.code": "PERMIT",
+    "d5.s": "Permit support",
+    "d5.d": "Signature of the responsible engineer and support before the authorities when applicable.",
+    "a.how": "How we work",
+    "s1.h": "Share your project with us",
+    "s1.p": "Architectural plans, sketches or photos of the lot. If you don't have architectural plans yet, we'll guide you.",
+    "s2.h": "We send you a quote",
+    "s2.p": "Fixed price based on square meters, number of stories and construction system.",
+    "s3.h": "Analysis and design",
+    "s3.p": "We model the structure, check seismic and wind loads, and optimize materials to avoid overdesign.",
+    "s4.h": "Delivery and follow-up",
+    "s4.p": "You receive drawings in PDF and DWG plus the calculation report, and we answer your contractor's questions during construction.",
+
+    "b.h2": "Less data entry, more engineering",
+    "b.p": "We support engineers and firms with services that speed up their work, from calculation reports and project reviews to AI workflows connected to your spreadsheets and analysis software. You keep the engineering judgment and we take care of the repetitive work.",
+    "f1.h": "Automated calculation reports",
+    "f1.p": "We generate the report from your model's results, in your format and with your signatures.",
+    "f1.a": "Copying tables into Word",
+    "f1.b": "Document ready for review",
+    "f2.h": "Drawing and specification review",
+    "f2.p": "An assistant that checks drawings against the calculation report and the code, and flags inconsistencies before delivery.",
+    "f2.a": "Manual sheet-by-sheet review",
+    "f2.b": "Prioritized list of comments",
+    "f3.h": "Building code assistant",
+    "f3.p": "Ask questions in plain language about NTC, ACI or AISC and get the clause cited, trained on your firm's documents.",
+    "f3.a": "Searching 400-page PDFs",
+    "f3.b": "Answer with the exact reference",
+    "f4.h": "Quotes and project management",
+    "f4.p": "Fee estimates, deliverable tracking and progress reports generated from your data.",
+    "f4.a": "Scattered spreadsheets and emails",
+    "f4.b": "One dashboard for your whole firm",
+    "b.ctap": "Tell us how your firm works and we'll propose the services and automations with the highest return.",
+    "b.cta": "Book an assessment",
+
+    "c.h2": "Custom add-ons for the software you already use",
+    "c.p": "ETABS, Tekla Structures and AutoCAD are the programs we use most at SEMS. We develop add-ons and routines tailored to each client to automate repetitive work and comply with current codes.",
+    "pe.h": "ETABS add-ons",
+    "pe.p": "We connect to ETABS to automate what your team does by hand. For example:",
+    "pe.l1": "Load combinations and response spectra per NTC",
+    "pe.l2": "Exporting results to Excel and to the calculation report",
+    "pe.l3": "Drift and structural member checks",
+    "pt.h": "Tekla Structures add-ons",
+    "pt.p": "Tools to model and document steel and concrete structures faster. For example:",
+    "pt.l1": "Automation of modeling tasks",
+    "pt.l2": "Reports and bills of materials",
+    "pt.l3": "Model exchange with ETABS",
+    "pa.h": "AutoCAD routines",
+    "pa.p": "Routines that speed up drafting and review of structural drawings. For example:",
+    "pa.l1": "Drawing reinforcement and typical details",
+    "pa.l2": "Column, beam and slab schedules",
+    "pa.l3": "Templates with your drawing format",
+    "c.price": "Custom quote",
+    "c.btn": "Quote development",
+    "c.note": "Using other software or have a different idea? <a href=\"#contacto\" data-perfil=\"software\">Tell us what you want to automate</a> and we'll look into it.",
+    "c.tm": "ETABS, Tekla Structures and AutoCAD are trademarks of their respective owners.",
+    "dim": "SEMS · SAFE STRUCTURES · EFFICIENT PROCESSES",
+
+    "d.label": "Why SEMS",
+    "d.h2": "Engineers who also build software",
+    "k1.h": "Up-to-date codes",
+    "k1.p": "We design with the current editions of Mexican and international codes.",
+    "k2.h": "Fixed price",
+    "k2.p": "You know what you'll pay from the start, with no surprise charges halfway through the project.",
+    "k3.h": "Optimized design",
+    "k3.p": "Good structural design avoids overdesign and saves steel and concrete on site.",
+    "k4.h": "Direct contact",
+    "k4.p": "You talk to the engineer who designs your project, not to a middleman.",
+    "d.tools": "Software we use most",
+    "d.lead": "Engineer in charge",
+    "d.cred": "Civil Engineer · Ph.D. in Engineering",
+    "d.bio": "Leads SEMS's structural projects and software development.",
+
+    "faq.label": "Frequently asked questions",
+    "faq.h2": "What people ask us most",
+    "q1": "What do I need to get a quote for the structural design of my project?",
+    "a1": "With the architectural plans (even preliminary ones), the location of the lot and the number of stories, we can give you a quote. If you have a geotechnical report, please share it too.",
+    "q2": "Can the drawings be used to apply for a building permit?",
+    "a2": "Yes. We deliver structural drawings and the calculation report in the format the authorities require, and we help with the responsible engineer's signature when applicable.",
+    "q3": "How long does the structural project take?",
+    "a3": "It depends on the size of the project, the construction system and the information available. We give you the timeline together with your quote.",
+    "q4": "How does workflow optimization work for my firm?",
+    "a4": "We start by reviewing how your team works today, which software it uses and which tasks it repeats most. From there we propose the automations or add-ons that save you the most time, build them to fit your firm and leave them up and running with your team.",
+    "q5": "How is a custom add-on quoted?",
+    "a5": "You tell us which task you want to automate and in which software. We review how you work today, propose the scope and give you a fixed price before we start.",
+
+    "ct.label": "Contact",
+    "ct.h2": "Tell us about your project",
+    "ct.p": "We'll get back to you as soon as possible with the next steps and, when applicable, a quote.",
+    "ct.tel": "Phone / WhatsApp",
+    "ct.loc": "Location",
+    "loc": "Playas de Rosarito, Baja California, Mexico",
+    "ct.soc": "Social media",
+    "ct.hours": "Business hours",
+    "ct.hoursv": "Monday to Friday, 8:00 a.m. to 5:00 p.m.",
+
+    "tabs.aria": "Request type",
+    "f.name": "Name",
+    "f.name.err": "Please enter your name.",
+    "f.email": "Email",
+    "f.email.err": "Please enter a valid email, for example name@email.com.",
+    "f.tel": "Phone <span class=\"opt\">(optional)</span>",
+    "f.city": "City",
+    "f.city.err": "Please enter the city of your project or firm.",
+    "f.type": "Type of project",
+    "f.type1": "New house",
+    "f.type2": "Retail space or commercial building",
+    "f.type3": "Addition or second story",
+    "f.type4": "Review of an existing structure",
+    "f.m2": "Approx. m²",
+    "f.floors": "Stories",
+    "f.floors4": "4 or more",
+    "f.team": "Team size",
+    "f.team1": "Just me",
+    "f.team2": "2 to 5 engineers",
+    "f.team3": "6 to 20 engineers",
+    "f.team4": "More than 20",
+    "f.prog": "Software",
+    "f.prog4": "Other software",
+    "f.msg.err": "Tell us a bit more so we can help you.",
+    "f.note": "We only use your information to respond to this request.",
+    "sent.h": "We received your request",
+    "sent.p1": "Thank you for reaching out. We'll get back to you as soon as possible.",
+    "sent.p2": "Prefer WhatsApp? You can also message us there.",
+    "sent.wa": "Message us on WhatsApp",
+    "fail.h": "We couldn't send your request",
+    "fail.p": "Check your connection and try again, or send it to us by email or WhatsApp. It will open with your message already written.",
+    "fail.mail": "Send by email",
+    "fail.wa": "Send by WhatsApp",
+    "fail.copy": "Copy message",
+
+    "wa.href": "https://wa.me/526611964186?text=" + encodeURIComponent("Hi SEMS, I'd like information about your services."),
+    "wa.aria": "Message us on WhatsApp",
+    "wa.short": "Message us",
+    "foot.p": "Structural Engineering Management Systems. Structural design, engineering services and specialized software.",
+    "foot.svc": "Services",
+    "foot.l1": "Residential and commercial design",
+    "foot.follow": "Follow us",
+    "foot.rights": "All rights reserved."
+  };
+
+  // Textos que arma el código (formulario y mensajes)
+  var STR = {
+    es: {
+      label: { casa: "Describe tu proyecto", ia: "¿Qué servicio necesitas o qué tareas quieres agilizar?", software: "¿Qué te gustaría automatizar?" },
+      asunto: { casa: "Cotización de diseño estructural", ia: "Servicios para ingenieros", software: "Cotización de software a la medida" },
+      nombre: "Nombre", correo: "Correo", tel: "Teléfono", ciudad: "Ciudad", tipo: "Tipo de obra", m2: "Superficie aprox.", sinDato: "sin dato",
+      niveles: "Niveles", equipo: "Tamaño del equipo", programa: "Programa",
+      enviar: "Enviar solicitud", enviando: "Enviando…", copiado: "Mensaje copiado. Pégalo en un correo a ",
+      switchLabel: "Ver la página en inglés (English)", switchTitle: "English"
+    },
+    en: {
+      label: { casa: "Describe your project", ia: "What service do you need, or which tasks would you like to speed up?", software: "What would you like to automate?" },
+      asunto: { casa: "Structural design quote", ia: "Services for engineers", software: "Custom software quote" },
+      nombre: "Name", correo: "Email", tel: "Phone", ciudad: "City", tipo: "Type of project", m2: "Approx. area", sinDato: "not provided",
+      niveles: "Stories", equipo: "Team size", programa: "Software",
+      enviar: "Send request", enviando: "Sending…", copiado: "Message copied. Paste it into an email to ",
+      switchLabel: "Ver la página en español (Spanish)", switchTitle: "Español"
+    }
+  };
+
+  var LANG_KEY = "sems-lang", lang = "es", sending = false, ES = {};
+  function eachAttr(el, fn) {
+    el.dataset.i18nAttr.split(",").forEach(function (pair) { var i = pair.indexOf(":"); fn(pair.slice(0, i), pair.slice(i + 1)); });
+  }
+  // Guarda el español original de la página para poder regresar a él
+  document.querySelectorAll("[data-i18n]").forEach(function (el) { ES[el.dataset.i18n] = el.textContent; });
+  document.querySelectorAll("[data-i18n-html]").forEach(function (el) { ES[el.dataset.i18nHtml] = el.innerHTML; });
+  document.querySelectorAll("[data-i18n-attr]").forEach(function (el) { eachAttr(el, function (attr, key) { ES[key] = el.getAttribute(attr); }); });
+
+  function t(k) { return STR[lang][k]; }
+  function applyLang(l, save) {
+    lang = l === "en" ? "en" : "es";
+    var dict = lang === "en" ? EN : ES;
+    var get = function (k) { return Object.prototype.hasOwnProperty.call(dict, k) ? dict[k] : ES[k]; };
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) { el.textContent = get(el.dataset.i18n); });
+    document.querySelectorAll("[data-i18n-html]").forEach(function (el) { el.innerHTML = get(el.dataset.i18nHtml); });
+    document.querySelectorAll("[data-i18n-attr]").forEach(function (el) { eachAttr(el, function (attr, key) { el.setAttribute(attr, get(key)); }); });
+    document.getElementById("msg-label").textContent = t("label")[current];
+    document.getElementById("submit-btn").textContent = sending ? t("enviando") : t("enviar");
+    var lb = document.getElementById("lang-btn");
+    lb.setAttribute("aria-label", t("switchLabel"));
+    lb.title = t("switchTitle");
+    lb.querySelectorAll("span").forEach(function (sp) { sp.dataset.on = String(sp.lang === lang); });
+    document.getElementById("copy-status").textContent = "";
+    if (save) {
+      try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
+      try {
+        var url = new URL(location.href);
+        if (lang === "en") url.searchParams.set("lang", "en"); else url.searchParams.delete("lang");
+        history.replaceState(null, "", url.pathname + url.search + url.hash);
+      } catch (e) {}
+    }
+  }
+  function initialLang() {
+    try { var q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "es") return q; } catch (e) {}
+    try { var saved = localStorage.getItem(LANG_KEY); if (saved === "en" || saved === "es") return saved; } catch (e) {}
+    var first = (navigator.languages && navigator.languages[0]) || navigator.language || "es";
+    return /^es\b/i.test(first) ? "es" : "en";
+  }
+
   // Menú móvil
   var menuBtn = document.getElementById("menu-btn"), nav = document.getElementById("nav");
   menuBtn.addEventListener("click", function () {
@@ -675,27 +941,29 @@ section.block { padding-block: var(--s-9); position: relative; }
   nav.addEventListener("click", function (e) { if (e.target.closest("a")) { nav.dataset.open = "false"; menuBtn.setAttribute("aria-expanded", "false"); } });
 
   // Pestañas del formulario
-  var labels = { casa: "Describe tu proyecto", ia: "¿Qué servicio necesitas o qué tareas quieres agilizar?", software: "¿Qué te gustaría automatizar?" };
-  var asunto = { casa: "Cotización de diseño estructural", ia: "Servicios para ingenieros", software: "Cotización de software a la medida" };
   var current = "casa";
-  function setTab(t) {
-    current = t;
-    document.querySelectorAll(".tabs button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.tab === t)); });
-    document.querySelectorAll("[data-for]").forEach(function (el) { el.hidden = el.dataset.for !== t; });
-    document.getElementById("msg-label").textContent = labels[t];
+  function setTab(tab) {
+    current = tab;
+    document.querySelectorAll(".tabs button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.tab === tab)); });
+    document.querySelectorAll("[data-for]").forEach(function (el) { el.hidden = el.dataset.for !== tab; });
+    document.getElementById("msg-label").textContent = t("label")[tab];
     document.getElementById("result").hidden = true;
     document.getElementById("sent").hidden = true;
   }
   document.querySelectorAll(".tabs button").forEach(function (b) { b.addEventListener("click", function () { setTab(b.dataset.tab); }); });
-  document.querySelectorAll("a[data-perfil]").forEach(function (a) {
-    a.addEventListener("click", function () {
-      setTab(a.dataset.perfil);
-      if (a.dataset.producto) document.getElementById("f-producto").value = a.dataset.producto;
-    });
+  // Los enlaces con data-perfil abren el formulario en la pestaña correcta (también los que se crean al cambiar de idioma)
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest("a[data-perfil]");
+    if (!a) return;
+    setTab(a.dataset.perfil);
+    if (a.dataset.producto) document.getElementById("f-producto").value = a.dataset.producto;
   });
 
+  document.getElementById("lang-btn").addEventListener("click", function () { applyLang(lang === "es" ? "en" : "es", true); });
+  applyLang(initialLang(), false);
+
   // Validación y armado del mensaje
-  var form = document.getElementById("form"), message = "";
+  var form = document.getElementById("form"), message = "", messageSubject = "";
   function check(id, ok) {
     var field = document.getElementById(id).closest(".field");
     field.dataset.invalid = String(!ok);
@@ -705,6 +973,7 @@ section.block { padding-block: var(--s-9); position: relative; }
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var v = function (id) { return document.getElementById(id).value.trim(); };
+    var opt = function (id) { var sel = document.getElementById(id); return sel.options[sel.selectedIndex].text; };
     var ok = [
       check("f-nombre", v("f-nombre").length > 1),
       check("f-email", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v("f-email"))),
@@ -713,15 +982,16 @@ section.block { padding-block: var(--s-9); position: relative; }
     ].every(Boolean);
     if (!ok) { var bad = form.querySelector('[data-invalid="true"] input, [data-invalid="true"] textarea'); if (bad) bad.focus(); return; }
 
-    var lines = [asunto[current], "", "Nombre: " + v("f-nombre"), "Correo: " + v("f-email")];
-    if (v("f-tel")) lines.push("Teléfono: " + v("f-tel"));
-    lines.push("Ciudad: " + v("f-ciudad"));
+    messageSubject = t("asunto")[current];
+    var lines = [messageSubject, "", t("nombre") + ": " + v("f-nombre"), t("correo") + ": " + v("f-email")];
+    if (v("f-tel")) lines.push(t("tel") + ": " + v("f-tel"));
+    lines.push(t("ciudad") + ": " + v("f-ciudad"));
     if (current === "casa") {
-      lines.push("Tipo de obra: " + v("f-tipo"), "Superficie aprox.: " + (v("f-m2") || "sin dato") + " m²", "Niveles: " + v("f-niveles"));
+      lines.push(t("tipo") + ": " + opt("f-tipo"), t("m2") + ": " + (v("f-m2") ? v("f-m2") + " m²" : t("sinDato")), t("niveles") + ": " + opt("f-niveles"));
     } else if (current === "ia") {
-      lines.push("Tamaño del equipo: " + v("f-equipo"));
+      lines.push(t("equipo") + ": " + opt("f-equipo"));
     } else {
-      lines.push("Programa: " + v("f-producto"));
+      lines.push(t("programa") + ": " + opt("f-producto"));
     }
     lines.push("", v("f-msg"));
     message = lines.join("\n");
@@ -730,7 +1000,7 @@ section.block { padding-block: var(--s-9); position: relative; }
     sent.hidden = true; failed.hidden = true;
     function show(panel) { panel.hidden = false; panel.scrollIntoView({ behavior: "smooth", block: "nearest" }); panel.focus({ preventScroll: true }); }
     function showFallback() {
-      document.getElementById("send-mail").href = "mailto:" + CONTACT.email + "?subject=" + encodeURIComponent(asunto[current]) + "&body=" + encodeURIComponent(message);
+      document.getElementById("send-mail").href = "mailto:" + CONTACT.email + "?subject=" + encodeURIComponent(messageSubject) + "&body=" + encodeURIComponent(message);
       document.getElementById("send-wa").href = "https://wa.me/" + CONTACT.whatsapp + "?text=" + encodeURIComponent(message);
       document.getElementById("copy-status").textContent = "";
       show(failed);
@@ -740,13 +1010,14 @@ section.block { padding-block: var(--s-9); position: relative; }
     // Un bot que marca la casilla oculta recibe una respuesta normal y no se envía nada
     if (document.getElementById("f-botcheck").checked) { done(); return; }
 
-    btn.disabled = true; btn.textContent = "Enviando…";
+    sending = true; btn.disabled = true; btn.textContent = t("enviando");
     fetch(WEB3FORMS.endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify({
         access_key: WEB3FORMS.key,
-        subject: "SEMS · " + asunto[current] + " · " + v("f-nombre"),
+        // [EN] en el asunto avisa que la persona escribió desde la versión en inglés
+        subject: "SEMS · " + (lang === "en" ? "[EN] " : "") + messageSubject + " · " + v("f-nombre"),
         from_name: "Sitio web SEMS",
         name: v("f-nombre"),
         email: v("f-email"),
@@ -757,7 +1028,7 @@ section.block { padding-block: var(--s-9); position: relative; }
       .then(function (res) { return res.json(); })
       .then(function (data) { if (data && data.success) { done(); } else { showFallback(); } })
       .catch(showFallback)
-      .then(function () { btn.disabled = false; btn.textContent = "Enviar solicitud"; });
+      .then(function () { sending = false; btn.disabled = false; btn.textContent = t("enviar"); });
   });
   form.querySelectorAll("input, textarea").forEach(function (el) {
     el.addEventListener("input", function () { var f = el.closest(".field"); if (f.dataset.invalid === "true") { f.dataset.invalid = "false"; f.querySelector(".err").hidden = true; } });
@@ -765,7 +1036,7 @@ section.block { padding-block: var(--s-9); position: relative; }
 
   document.getElementById("copy-btn").addEventListener("click", function () {
     var status = document.getElementById("copy-status");
-    var done = function () { status.textContent = "Mensaje copiado. Pégalo en un correo a " + CONTACT.email + "."; };
+    var done = function () { status.textContent = t("copiado") + CONTACT.email + "."; };
     var fallback = function () { status.textContent = message; };
     try { navigator.clipboard.writeText(message).then(done, fallback); } catch (err) { fallback(); }
   });
